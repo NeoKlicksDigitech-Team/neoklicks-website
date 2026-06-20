@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { Mail, MapPin, Clock, MessageSquare, ArrowRight, CheckCircle2, AlertCircle, Share2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { createClient } from "@/utils/supabase/client";
+import { contactSchema } from "@/utils/security/validation";
+import { sanitizeData } from "@/utils/security/sanitize";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -26,15 +28,26 @@ export default function Contact() {
     setStatus("submitting");
     setErrorMessage("");
 
+    // Client-side validation using Zod
+    const validationResult = contactSchema.safeParse(formData);
+    if (!validationResult.success) {
+      setStatus("error");
+      setErrorMessage(validationResult.error.issues[0]?.message || "Invalid input data.");
+      return;
+    }
+
+    // Client-side sanitization
+    const sanitized = sanitizeData(validationResult.data);
+
     try {
       const supabase = createClient();
       const { error } = await supabase
         .from("contact_submissions")
         .insert({
-          name: formData.name,
-          email: formData.email,
-          project_type: formData.projectType,
-          message: formData.message,
+          name: sanitized.name,
+          email: sanitized.email,
+          project_type: sanitized.projectType,
+          message: sanitized.message,
         });
 
       if (error) {
