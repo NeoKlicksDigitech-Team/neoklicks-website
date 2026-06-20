@@ -11,6 +11,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Process, { ProcessStep } from "@/components/Process";
 import Footer from "@/components/Footer";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 // Animation Components for Each Service
 function WebDevAnimation() {
@@ -663,7 +664,9 @@ export default function ServicePageClient({ service, slug }: { service: ClientSe
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
               {service.counters.map((cnt, idx) => (
                 <div key={idx} className="space-y-1">
-                  <p className="text-3xl sm:text-4xl font-extrabold font-mono text-white">{cnt.value}</p>
+                  <p className="text-3xl sm:text-4xl font-extrabold font-mono text-white">
+                    <AnimatedCounter value={cnt.value} />
+                  </p>
                   <p className="text-[9px] sm:text-[10px] font-bold font-mono text-slate-400 uppercase tracking-widest">
                     {cnt.label}
                   </p>

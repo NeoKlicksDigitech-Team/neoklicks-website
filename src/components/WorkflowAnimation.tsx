@@ -56,7 +56,7 @@ export default function WorkflowAnimation() {
   }, []);
 
   return (
-    <div className="w-full max-w-[500px] bg-white rounded-3xl border border-slate-200/80 shadow-2xl p-6 sm:p-8 relative select-none">
+    <div className="w-full max-w-[500px] bg-white rounded-3xl border border-slate-200/80 shadow-2xl p-6 sm:p-8 relative select-none overflow-hidden">
       
       {/* Decorative Blur Ambient Backgrounds */}
       <div className="absolute -top-12 -right-12 w-36 h-36 bg-brand-orange/5 rounded-full blur-2xl pointer-events-none"></div>

@@ -4,8 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { ArrowRight, MessageCircle, Eye } from "lucide-react";
 import DashboardAnimation from "./DashboardAnimation";
-
-
+import AnimatedCounter from "./AnimatedCounter";
 
 export default function Hero() {
   return (
@@ -67,7 +66,9 @@ export default function Hero() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {/* Counter 1: Projects Delivered */}
             <div className="space-y-1">
-              <p className="text-3xl sm:text-4xl font-extrabold font-mono text-brand-orange">2+</p>
+              <p className="text-3xl sm:text-4xl font-extrabold font-mono text-brand-orange">
+                <AnimatedCounter value="2+" />
+              </p>
               <p className="text-[9px] sm:text-[10px] font-bold font-mono text-slate-400 uppercase tracking-widest">
                 Projects Delivered
               </p>
@@ -75,7 +76,9 @@ export default function Hero() {
 
             {/* Counter 2: Client Retention */}
             <div className="space-y-1">
-              <p className="text-3xl sm:text-4xl font-extrabold font-mono text-white">98%</p>
+              <p className="text-3xl sm:text-4xl font-extrabold font-mono text-white">
+                <AnimatedCounter value="98%" />
+              </p>
               <p className="text-[9px] sm:text-[10px] font-bold font-mono text-slate-400 uppercase tracking-widest">
                 Client Retention
               </p>
@@ -83,7 +86,9 @@ export default function Hero() {
 
             {/* Counter 3: Countries Served */}
             <div className="space-y-1">
-              <p className="text-3xl sm:text-4xl font-extrabold font-mono text-brand-pink">1</p>
+              <p className="text-3xl sm:text-4xl font-extrabold font-mono text-brand-pink">
+                <AnimatedCounter value="1" />
+              </p>
               <p className="text-[9px] sm:text-[10px] font-bold font-mono text-slate-400 uppercase tracking-widest">
                 Countries Served
               </p>
@@ -91,7 +96,9 @@ export default function Hero() {
 
             {/* Counter 4: Uptime SLA Standard */}
             <div className="space-y-1">
-              <p className="text-3xl sm:text-4xl font-extrabold font-mono text-white">99.9%</p>
+              <p className="text-3xl sm:text-4xl font-extrabold font-mono text-white">
+                <AnimatedCounter value="99.9%" />
+              </p>
               <p className="text-[9px] sm:text-[10px] font-bold font-mono text-slate-400 uppercase tracking-widest">
                 Uptime SLA Standard
               </p>

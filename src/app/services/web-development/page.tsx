@@ -11,6 +11,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Process from "@/components/Process";
 import Footer from "@/components/Footer";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 export default function WebDevelopmentServicePage() {
   const [activePalette, setActivePalette] = useState(0);
@@ -325,21 +326,27 @@ export default function WebDevelopmentServicePage() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
               
               <div className="space-y-1">
-                <p className="text-3xl sm:text-4xl font-extrabold font-mono text-white">5+</p>
+                <p className="text-3xl sm:text-4xl font-extrabold font-mono text-white">
+                  <AnimatedCounter value="5+" />
+                </p>
                 <p className="text-[9px] sm:text-[10px] font-bold font-mono text-slate-400 uppercase tracking-widest">
                   Years of Expertise
                 </p>
               </div>
 
               <div className="space-y-1">
-                <p className="text-3xl sm:text-4xl font-extrabold font-mono text-brand-pink">98%</p>
+                <p className="text-3xl sm:text-4xl font-extrabold font-mono text-brand-pink">
+                  <AnimatedCounter value="98%" />
+                </p>
                 <p className="text-[9px] sm:text-[10px] font-bold font-mono text-slate-400 uppercase tracking-widest">
                   Client Satisfaction
                 </p>
               </div>
 
               <div className="space-y-1">
-                <p className="text-3xl sm:text-4xl font-extrabold font-mono text-white">100/100</p>
+                <p className="text-3xl sm:text-4xl font-extrabold font-mono text-white">
+                  <AnimatedCounter value="100/100" />
+                </p>
                 <p className="text-[9px] sm:text-[10px] font-bold font-mono text-slate-400 uppercase tracking-widest">
                   Avg PageSpeed Score
                 </p>
