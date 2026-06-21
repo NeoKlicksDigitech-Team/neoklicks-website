@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { ArrowRight, Terminal, Brain, Globe, ShoppingBag, Cpu } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -6,6 +7,53 @@ import Hero from "@/components/Hero";
 import TechMarquee from "@/components/TechMarquee";
 import WorkflowAnimation from "@/components/WorkflowAnimation";
 import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "NeoKlicks DigiTech | Web Development & AI/ML Agency in Nashik, India",
+  description: "NeoKlicks DigiTech is a Nashik-based digital agency offering custom web development, AI/ML integrations, e-commerce storefronts, SEO, and business automation for businesses across India and globally.",
+  keywords: "web development agency Nashik, AI ML solutions India, e-commerce development, SEO services Nashik, custom software development, business automation, digital agency Maharashtra",
+  authors: [{ name: "NeoKlicks DigiTech" }],
+  robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  alternates: {
+    canonical: "https://neoklicksdigitech.com/",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://neoklicksdigitech.com/",
+    siteName: "NeoKlicks DigiTech",
+    title: "NeoKlicks DigiTech | Web Development & AI/ML Agency in Nashik",
+    description: "End-to-end digital services — custom web apps, AI/ML integrations, e-commerce, SEO, and automation. Nashik-based, globally delivered.",
+    images: [
+      {
+        url: "https://neoklicksdigitech.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "NeoKlicks DigiTech – Digital Agency in Nashik, India",
+      },
+    ],
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NeoKlicks DigiTech | Web Development & AI/ML Agency in Nashik",
+    description: "Custom web development, AI/ML integrations, SEO & automation for businesses in India and worldwide.",
+    images: [
+      {
+        url: "https://neoklicksdigitech.com/og-image.jpg",
+        alt: "NeoKlicks DigiTech – Nashik Digital Agency",
+      },
+    ],
+  },
+  other: {
+    "content-language": "en-IN",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0A1628",
+  width: "device-width",
+  initialScale: 1,
+};
 
 export default function Home() {
   const previewServices = [
