@@ -1,13 +1,55 @@
 import React from "react";
-import { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { BookOpen, Calendar, Clock, ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Blog & Technical Insights | NeoKlicks Digitech",
-  description: "Read technical guides on Next.js architectures, LLM pipelines, PageSpeed optimization, and digital marketing strategies from NeoKlicks Digitech.",
+  title: "Blog & Technical Insights | NeoKlicks DigiTech",
+  description: "Deep dives into full-stack Next.js development, applied AI/ML pipelines, and data-driven marketing funnels. Engineering guides and insights from the NeoKlicks DigiTech team.",
+  keywords: "web development blog, Next.js tutorials, AI ML guides India, digital marketing insights, NeoKlicks blog, engineering articles Nashik",
+  authors: [{ name: "NeoKlicks DigiTech" }],
+  robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  alternates: {
+    canonical: "https://neoklicksdigitech.com/blog",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://neoklicksdigitech.com/blog",
+    siteName: "NeoKlicks DigiTech",
+    title: "NeoKlicks Insights & Engineering Guides",
+    description: "Technical deep dives into Next.js, AI/ML integrations, and performance marketing. Stay ahead with NeoKlicks DigiTech's engineering blog.",
+    images: [
+      {
+        url: "https://neoklicksdigitech.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "NeoKlicks DigiTech Blog – Technical Insights",
+      },
+    ],
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NeoKlicks Insights & Engineering Guides",
+    description: "Deep dives into Next.js, AI pipelines, and digital marketing from the NeoKlicks DigiTech team.",
+    images: [
+      {
+        url: "https://neoklicksdigitech.com/og-image.jpg",
+        alt: "NeoKlicks DigiTech – Technical Blog",
+      },
+    ],
+  },
+  other: {
+    "content-language": "en-IN",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0A1628",
+  width: "device-width",
+  initialScale: 1,
 };
 
 interface BlogPost {

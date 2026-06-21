@@ -1,5 +1,5 @@
 import React from "react";
-import { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { FileText, Calendar, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
@@ -7,7 +7,49 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Terms and Conditions | NeoKlicks DigiTech",
-  description: "Terms and conditions governing the use of NeoKlicks DigiTech website and services.",
+  description: "Read the Terms and Conditions governing your use of NeoKlicks DigiTech's services — covering project scope, payment, client responsibilities, and legal obligations under Indian law.",
+  keywords: "NeoKlicks DigiTech terms and conditions, service agreement India, web agency terms of service",
+  authors: [{ name: "NeoKlicks DigiTech" }],
+  robots: "noindex, follow",
+  alternates: {
+    canonical: "https://neoklicksdigitech.com/terms-and-conditions",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://neoklicksdigitech.com/terms-and-conditions",
+    siteName: "NeoKlicks DigiTech",
+    title: "Terms and Conditions | NeoKlicks DigiTech",
+    description: "Terms and Conditions for NeoKlicks DigiTech's services — project scope, fees, client responsibilities, and legal terms under Indian law.",
+    images: [
+      {
+        url: "https://neoklicksdigitech.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Terms and Conditions – NeoKlicks DigiTech",
+      },
+    ],
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary",
+    title: "Terms and Conditions | NeoKlicks DigiTech",
+    description: "NeoKlicks DigiTech's service terms — project scope, payment, and legal obligations under Indian law.",
+    images: [
+      {
+        url: "https://neoklicksdigitech.com/og-image.jpg",
+        alt: "NeoKlicks DigiTech – Terms and Conditions",
+      },
+    ],
+  },
+  other: {
+    "content-language": "en-IN",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0A1628",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function TermsAndConditionsPage() {

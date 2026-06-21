@@ -1,6 +1,6 @@
 import React from "react";
 import { notFound } from "next/navigation";
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import { 
   Cpu, Globe, Search, ShoppingBag, TrendingUp, Palette, ShieldCheck,
   ClipboardList, Lightbulb, LayoutGrid, Code, Rocket
@@ -561,19 +561,183 @@ export async function generateStaticParams() {
   }));
 }
 
+const seoMetadataMap: Record<string, {
+  title: string;
+  description: string;
+  keywords: string;
+  canonical: string;
+  ogTitle: string;
+  ogDescription: string;
+  ogAlt: string;
+  twitterTitle: string;
+  twitterDescription: string;
+  twitterAlt: string;
+}> = {
+  "ai-ml-solutions": {
+    title: "AI/ML & Business Automation Services | NeoKlicks DigiTech Nashik",
+    description: "Automate repetitive tasks, connect software platforms, and build smart AI/ML workflows with NeoKlicks DigiTech. Intelligent systems that save time and reduce operational costs for Indian businesses.",
+    keywords: "AI ML solutions India, business automation Nashik, intelligent workflow automation, AI integration agency, machine learning solutions Maharashtra, process automation India",
+    canonical: "https://neoklicksdigitech.com/services/ai-ml-solutions",
+    ogTitle: "AI/ML & Business Automation | Intelligent Workflows – NeoKlicks DigiTech",
+    ogDescription: "Save time and cut costs with intelligent automation from NeoKlicks DigiTech. We build AI/ML workflows that connect your tools and automate repetitive operations.",
+    ogAlt: "AI/ML & Automation Services – NeoKlicks DigiTech",
+    twitterTitle: "AI/ML & Business Automation | NeoKlicks DigiTech",
+    twitterDescription: "Intelligent workflows, AI integrations, and business automation for Indian businesses. NeoKlicks DigiTech, Nashik.",
+    twitterAlt: "NeoKlicks DigiTech – AI & Automation Services",
+  },
+  "custom-software": {
+    title: "Custom Software & Dashboards | NeoKlicks DigiTech Nashik",
+    description: "NeoKlicks DigiTech builds secure admin panels, internal dashboards, CRMs, and customer portals tailored to your operational needs. Custom software solutions for Indian businesses.",
+    keywords: "custom software development India, admin panel development, CRM development Nashik, internal dashboard development, custom web application Maharashtra, business portal development",
+    canonical: "https://neoklicksdigitech.com/services/custom-software",
+    ogTitle: "Custom Software & Dashboards | Tailored for Your Business – NeoKlicks DigiTech",
+    ogDescription: "Secure admin panels, CRMs, and internal portals built to solve your specific operational challenges. Custom software from NeoKlicks DigiTech, Nashik.",
+    ogAlt: "Custom Software & Dashboards – NeoKlicks DigiTech",
+    twitterTitle: "Custom Software & Dashboards | NeoKlicks DigiTech",
+    twitterDescription: "Tailored admin panels, CRMs, and business portals built by NeoKlicks DigiTech in Nashik, India.",
+    twitterAlt: "NeoKlicks DigiTech – Custom Software Development",
+  },
+  "digital-marketing": {
+    title: "Digital Marketing & Lead Generation | NeoKlicks DigiTech Nashik",
+    description: "Performance-driven digital marketing campaigns built on exact analytics. NeoKlicks DigiTech launches, monitors, and scales ad campaigns across search and social to grow your sales.",
+    keywords: "digital marketing agency Nashik, Google Ads India, Facebook Ads agency, lead generation India, performance marketing Maharashtra, paid ads agency Nashik",
+    canonical: "https://neoklicksdigitech.com/services/digital-marketing",
+    ogTitle: "Digital Marketing & Lead Generation | Scale Your Sales – NeoKlicks DigiTech",
+    ogDescription: "High-ROI ad campaigns across Google and social platforms. NeoKlicks DigiTech builds performance marketing strategies that drive real business growth.",
+    ogAlt: "Digital Marketing & Lead Generation – NeoKlicks DigiTech",
+    twitterTitle: "Digital Marketing & Lead Generation | NeoKlicks DigiTech",
+    twitterDescription: "Scale your sales with data-driven ad campaigns. NeoKlicks DigiTech, Nashik — performance marketing that delivers ROI.",
+    twitterAlt: "NeoKlicks DigiTech – Digital Marketing Services",
+  },
+  "e-commerce": {
+    title: "E-Commerce Development | High-Converting Online Stores – NeoKlicks DigiTech",
+    description: "Create high-performance shopping experiences that capture sales and retain customers. NeoKlicks DigiTech handles catalog setup, payment integration, and storefront optimization for Indian businesses.",
+    keywords: "e-commerce development Nashik, Shopify development India, online store development Maharashtra, WooCommerce agency India, e-commerce agency Nashik, online shopping website development",
+    canonical: "https://neoklicksdigitech.com/services/e-commerce",
+    ogTitle: "E-Commerce Development | Turn Visitors Into Loyal Buyers – NeoKlicks DigiTech",
+    ogDescription: "High-converting online stores with catalog setup, payment integration, and performance optimization. E-commerce development by NeoKlicks DigiTech, Nashik.",
+    ogAlt: "E-Commerce Development – NeoKlicks DigiTech Nashik",
+    twitterTitle: "E-Commerce Development | NeoKlicks DigiTech",
+    twitterDescription: "High-performance online stores built to convert. NeoKlicks DigiTech handles Shopify, WooCommerce & custom e-commerce for Indian businesses.",
+    twitterAlt: "NeoKlicks DigiTech – E-Commerce Development",
+  },
+  "maintenance-support": {
+    title: "Website Maintenance & Support | 24/7 Monitoring – NeoKlicks DigiTech",
+    description: "Ongoing monitoring, regular updates, and technical support to keep your website or software running at peak performance. NeoKlicks DigiTech's maintenance plans for Indian businesses.",
+    keywords: "website maintenance Nashik, web support services India, website monitoring Maharashtra, technical support agency India, website uptime management, server maintenance Nashik",
+    canonical: "https://neoklicksdigitech.com/services/maintenance-support",
+    ogTitle: "Website Maintenance & Support | Keep Systems Safe & Online – NeoKlicks DigiTech",
+    ogDescription: "Proactive monitoring, updates, and technical support to ensure your website stays secure and online 24/7. Maintenance plans from NeoKlicks DigiTech, Nashik.",
+    ogAlt: "Website Maintenance & Support – NeoKlicks DigiTech",
+    twitterTitle: "Website Maintenance & Support | NeoKlicks DigiTech",
+    twitterDescription: "24/7 monitoring, updates, and technical support for your website or software. NeoKlicks DigiTech, Nashik.",
+    twitterAlt: "NeoKlicks DigiTech – Maintenance & Support",
+  },
+  "seo": {
+    title: "SEO Services in Nashik | Get Found on Google – NeoKlicks DigiTech",
+    description: "NeoKlicks DigiTech optimizes your website's structure, speed, and content so Google ranks it higher — bringing in more organic traffic and qualified leads for your business.",
+    keywords: "SEO services Nashik, search engine optimization India, Google ranking agency Maharashtra, organic traffic growth, local SEO Nashik, SEO agency India, on-page SEO off-page SEO",
+    canonical: "https://neoklicksdigitech.com/services/seo",
+    ogTitle: "SEO Services | Get Found by Customers Actively Searching – NeoKlicks DigiTech",
+    ogDescription: "Strategic SEO that improves Google rankings, drives organic traffic, and grows qualified leads. NeoKlicks DigiTech's 6-step SEO framework — Nashik & India.",
+    ogAlt: "SEO Services – NeoKlicks DigiTech Nashik",
+    twitterTitle: "SEO Services in Nashik | NeoKlicks DigiTech",
+    twitterDescription: "Get found on Google with strategic SEO from NeoKlicks DigiTech. Higher rankings, more organic traffic, qualified leads — Nashik & India.",
+    twitterAlt: "NeoKlicks DigiTech – SEO Services",
+  },
+  "ui-ux-design": {
+    title: "UI/UX Design Services | Beautiful, Intuitive Interfaces – NeoKlicks DigiTech",
+    description: "NeoKlicks DigiTech designs visually stunning, user-centred digital interfaces. From wireframes to final UI — every screen is crafted for clarity, usability, and conversion.",
+    keywords: "UI UX design agency Nashik, user interface design India, UX design services Maharashtra, web design agency India, app UI design Nashik, Figma design agency",
+    canonical: "https://neoklicksdigitech.com/services/ui-ux-design",
+    ogTitle: "UI/UX Design | Beautiful Interfaces Built for Users – NeoKlicks DigiTech",
+    ogDescription: "Visually stunning and intuitive digital interfaces designed to improve user experience and drive conversions. Premium UI/UX design from NeoKlicks DigiTech, Nashik.",
+    ogAlt: "UI/UX Design Services – NeoKlicks DigiTech",
+    twitterTitle: "UI/UX Design Services | NeoKlicks DigiTech",
+    twitterDescription: "Beautiful, user-centred digital interfaces from NeoKlicks DigiTech. Wireframes to final UI — built for clarity and conversion.",
+    twitterAlt: "NeoKlicks DigiTech – UI/UX Design",
+  },
+  "web-development": {
+    title: "Web Development Services in Nashik | NeoKlicks DigiTech",
+    description: "NeoKlicks DigiTech crafts pixel-perfect, high-performance websites that attract customers and grow revenue. Custom full-stack web development for businesses across India and globally.",
+    keywords: "web development Nashik, custom website development India, full stack developer Maharashtra, Next.js development India, React developer Nashik, website development agency India",
+    canonical: "https://neoklicksdigitech.com/services/web-development",
+    ogTitle: "Web Development | Websites That Captivate, Convert & Scale – NeoKlicks DigiTech",
+    ogDescription: "Pixel-perfect, high-performance websites built to grow your business. Custom full-stack web development from NeoKlicks DigiTech in Nashik, India.",
+    ogAlt: "Web Development Services – NeoKlicks DigiTech Nashik",
+    twitterTitle: "Web Development Services | NeoKlicks DigiTech Nashik",
+    twitterDescription: "Custom, high-performance websites built to captivate, convert, and scale. Full-stack web development from NeoKlicks DigiTech, Nashik India.",
+    twitterAlt: "NeoKlicks DigiTech – Web Development Services",
+  }
+};
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const service = servicesDetailMap[slug];
   if (!service) {
     return {
-      title: "Service Not Found | NeoKlicks Digitech",
+      title: "Service Not Found | NeoKlicks DigiTech",
     };
   }
-  return {
-    title: `${service.title} | NeoKlicks Digitech`,
+  const seo = seoMetadataMap[slug] || {
+    title: `${service.title} | NeoKlicks DigiTech`,
     description: service.tagline,
+    keywords: "web design, SEO, AI, Nashik",
+    canonical: `https://neoklicksdigitech.com/services/${slug}`,
+    ogTitle: service.title,
+    ogDescription: service.tagline,
+    ogAlt: service.title,
+    twitterTitle: service.title,
+    twitterDescription: service.tagline,
+    twitterAlt: service.title,
+  };
+  return {
+    title: seo.title,
+    description: seo.description,
+    keywords: seo.keywords,
+    authors: [{ name: "NeoKlicks DigiTech" }],
+    robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    alternates: {
+      canonical: seo.canonical,
+    },
+    openGraph: {
+      type: "website",
+      url: seo.canonical,
+      siteName: "NeoKlicks DigiTech",
+      title: seo.ogTitle,
+      description: seo.ogDescription,
+      images: [
+        {
+          url: "https://neoklicksdigitech.com/og-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: seo.ogAlt,
+        },
+      ],
+      locale: "en_IN",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: seo.twitterTitle,
+      description: seo.twitterDescription,
+      images: [
+        {
+          url: "https://neoklicksdigitech.com/og-image.jpg",
+          alt: seo.twitterAlt,
+        },
+      ],
+    },
+    other: {
+      "content-language": "en-IN",
+    },
   };
 }
+
+export const viewport: Viewport = {
+  themeColor: "#0A1628",
+  width: "device-width",
+  initialScale: 1,
+};
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

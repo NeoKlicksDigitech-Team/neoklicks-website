@@ -1,5 +1,5 @@
 import React from "react";
-import { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Shield, Calendar, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
@@ -7,7 +7,49 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | NeoKlicks DigiTech",
-  description: "Privacy policy explaining how NeoKlicks DigiTech collects, uses, and safeguards your information.",
+  description: "Read NeoKlicks DigiTech's Privacy Policy — how we collect, use, and protect your personal data in compliance with India's Digital Personal Data Protection Act (DPDP) and IT Act.",
+  keywords: "NeoKlicks DigiTech privacy policy, data protection policy India, DPDP Act compliance, personal data policy",
+  authors: [{ name: "NeoKlicks DigiTech" }],
+  robots: "noindex, follow",
+  alternates: {
+    canonical: "https://neoklicksdigitech.com/privacy-policy",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://neoklicksdigitech.com/privacy-policy",
+    siteName: "NeoKlicks DigiTech",
+    title: "Privacy Policy | NeoKlicks DigiTech",
+    description: "How NeoKlicks DigiTech collects, uses, and protects your data — compliant with India's DPDP Act and IT Act.",
+    images: [
+      {
+        url: "https://neoklicksdigitech.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Privacy Policy – NeoKlicks DigiTech",
+      },
+    ],
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary",
+    title: "Privacy Policy | NeoKlicks DigiTech",
+    description: "NeoKlicks DigiTech's data privacy policy — DPDP Act & IT Act compliant.",
+    images: [
+      {
+        url: "https://neoklicksdigitech.com/og-image.jpg",
+        alt: "NeoKlicks DigiTech – Privacy Policy",
+      },
+    ],
+  },
+  other: {
+    "content-language": "en-IN",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0A1628",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function PrivacyPolicyPage() {
