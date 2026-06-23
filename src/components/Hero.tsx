@@ -43,11 +43,11 @@ export default function Hero() {
               </a>
 
               <Link
-                href="/services"
+                href="/portfolio"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white hover:bg-slate-50 border border-slate-200 text-brand-navy rounded-2xl font-bold shadow-xs transition-all duration-300 text-sm select-none hover:-translate-y-0.5"
               >
                 <Eye className="h-5 w-5" />
-                Explore Services
+                View Our Work
               </Link>
             </div>
           </div>

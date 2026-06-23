@@ -52,122 +52,106 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-interface BlogPost {
-  id: number;
-  title: string;
-  excerpt: string;
-  date: string;
-  readTime: string;
-  category: string;
-  tagColor: string;
-}
-
-const mockPosts: BlogPost[] = [
-  {
-    id: 1,
-    title: "Why Next.js is the Uncontested Standard for Modern Web Speed",
-    excerpt: "Analyze how Server Components, static path optimization, and Tailwind CSS v4 compiler hooks yield 100/100 PageSpeed scores and boost Google indexing.",
-    date: "June 15, 2026",
-    readTime: "5 min read",
-    category: "Web Engineering",
-    tagColor: "text-brand-orange bg-brand-orange/10 border-brand-orange/20",
-  },
-  {
-    id: 2,
-    title: "Integrating Gemini LLMs into Business Workflows: A Hands-on Practical Guide",
-    excerpt: "Go beyond marketing hype. Learn how to configure vector databases, build semantic embeddings, and deploy autonomous LLM agents inside corporate CRM panels.",
-    date: "June 10, 2026",
-    readTime: "7 min read",
-    category: "AI & ML",
-    tagColor: "text-brand-pink bg-brand-pink/10 border-brand-pink/20",
-  },
-  {
-    id: 3,
-    title: "How PageSpeed and Technical SEO Directly Lower Your Google Ad CPA",
-    excerpt: "Why slow-loading landing pages destroy Meta and Google Ad performance. Learn how optimizing Core Web Vitals drops customer acquisition costs by up to 25%.",
-    date: "June 05, 2026",
-    readTime: "6 min read",
-    category: "SEO & Growth",
-    tagColor: "text-blue-500 bg-blue-500/10 border-blue-500/20",
-  },
-];
+import { blogPosts } from "@/utils/blogData";
 
 export default function BlogPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
 
-      <main className="flex-grow pt-32 pb-24">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+      <main className="flex-grow pt-32 pb-24 bg-slate-50/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header */}
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-            <span className="text-xs font-mono uppercase tracking-widest text-brand-orange font-bold flex items-center justify-center gap-1.5">
-              <BookOpen className="h-4 w-4" /> Technical Resources
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-extrabold font-display text-brand-navy tracking-tight">
-              NeoKlicks <span className="gradient-text">Insights</span> & Engineering Guides
-            </h1>
-            <p className="text-slate-500 text-sm">
-              Deep dives into full-stack Next.js development, applied artificial intelligence pipelines, and data-driven marketing funnels.
-            </p>
-          </div>
-
-          {/* Featured Post (Visual highlight) */}
-          <div className="bg-slate-950 text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-xl mb-12 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none"></div>
-            
-            <div className="relative z-10 space-y-4 max-w-2xl">
-              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-brand-orange/20 text-brand-orange text-[10px] font-mono font-bold uppercase tracking-wider">
-                <BookOpen className="h-3 w-3" /> Featured Article
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div className="space-y-4 max-w-2xl">
+              <span className="text-xs font-mono uppercase tracking-widest text-brand-orange font-bold flex items-center gap-1.5">
+                <BookOpen className="h-4 w-4" /> Technical Resources
               </span>
-              <h2 className="text-xl sm:text-2xl font-bold font-display leading-snug group-hover:text-brand-orange transition-colors">
-                {mockPosts[0].title}
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                {mockPosts[0].excerpt}
+              <h1 className="text-4xl sm:text-5xl font-extrabold font-display text-brand-navy tracking-tight">
+                Insights. Ideas. Impact.
+              </h1>
+              <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
+                Deep dives into full-stack Next.js development, applied artificial intelligence pipelines, and data-driven marketing funnels from the NeoKlicks team.
               </p>
-              <div className="flex flex-wrap items-center gap-4 text-[10px] text-slate-500 font-mono pt-2">
-                <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5" /> {mockPosts[0].date}</span>
-                <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> {mockPosts[0].readTime}</span>
-              </div>
-              <div className="pt-2">
-                <span className="inline-flex items-center text-xs font-bold text-brand-orange group-hover:text-brand-pink transition-colors gap-1.5 cursor-pointer">
-                  Read Full Technical Blueprint <ArrowRight className="h-3.5 w-3.5" />
-                </span>
-              </div>
             </div>
+            <Link
+              href="/blog"
+              className="inline-flex items-center text-sm font-bold text-brand-orange hover:text-brand-pink transition-colors gap-1.5 shrink-0"
+            >
+              View all insights <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
 
-          {/* Grid of other posts */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {mockPosts.slice(1).map((post) => (
-              <div
+          {/* Grid of posts */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogPosts.map((post) => (
+              <article
                 key={post.id}
-                className="bg-white rounded-3xl p-6 border border-slate-200 shadow-2xs hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+                className="bg-white rounded-3xl border border-slate-200/80 shadow-2xs hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden group"
               >
-                <div className="space-y-4">
-                  <span className={`inline-flex px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase border ${post.tagColor}`}>
-                    {post.category}
-                  </span>
-                  <h3 className="text-lg font-bold text-brand-navy font-display group-hover:text-brand-orange transition-colors leading-snug">
-                    {post.title}
-                  </h3>
-                  <p className="text-xs text-slate-500 leading-relaxed">
-                    {post.excerpt}
-                  </p>
-                </div>
+                {/* Image */}
+                <Link href={`/blog/${post.slug}`} className="block overflow-hidden aspect-[16/10] relative bg-slate-100">
+                  <img
+                    src={post.image}
+                    alt={post.alt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </Link>
 
-                <div className="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between">
-                  <div className="flex gap-3 text-[10px] text-slate-400 font-mono">
-                    <span className="flex items-center gap-1"><Calendar className="h-3 w-3" /> {post.date}</span>
-                    <span className="flex items-center gap-1"><Clock className="h-3 w-3" /> {post.readTime}</span>
+                {/* Content */}
+                <div className="p-6 flex flex-col flex-grow justify-between">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between text-[11px] font-mono font-bold">
+                      <span className="text-brand-orange uppercase tracking-wider">
+                        {post.category}
+                      </span>
+                      <span className="text-slate-400 font-normal flex items-center gap-1">
+                        <Calendar className="h-3 w-3" /> {post.date}
+                      </span>
+                    </div>
+
+                    <Link href={`/blog/${post.slug}`} className="block group/title">
+                      <h3 
+                        className="text-lg font-bold text-brand-navy font-display group-hover/title:text-brand-orange transition-colors leading-snug line-clamp-2"
+                        style={{
+                          display: "-webkit-box",
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden"
+                        }}
+                      >
+                        {post.title}
+                      </h3>
+                    </Link>
+                    
+                    <p 
+                      className="text-xs text-slate-500 leading-relaxed line-clamp-3"
+                      style={{
+                        display: "-webkit-box",
+                        WebkitLineClamp: 3,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden"
+                      }}
+                    >
+                      {post.excerpt}
+                    </p>
                   </div>
-                  <span className="text-xs font-bold text-brand-navy group-hover:text-brand-orange transition-colors inline-flex items-center gap-1 cursor-pointer">
-                    Read <ArrowRight className="h-3.5 w-3.5" />
-                  </span>
+
+                  <div className="mt-6 pt-5 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-[10px] text-slate-400 font-mono flex items-center gap-1">
+                      <Clock className="h-3.5 w-3.5" /> {post.readTime}
+                    </span>
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="text-xs font-bold text-brand-navy hover:text-brand-orange transition-colors inline-flex items-center gap-1 group/btn"
+                    >
+                      Read more <ArrowRight className="h-3.5 w-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
+                    </Link>
+                  </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
 

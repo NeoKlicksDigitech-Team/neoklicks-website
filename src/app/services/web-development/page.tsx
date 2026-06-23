@@ -71,7 +71,7 @@ export default function WebDevelopmentServicePage() {
                 
                 {/* Title */}
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-display leading-[1.12] text-brand-navy tracking-tight">
-                  Websites That <span className="gradient-text">Captivate,</span> Convert & Scale.
+                  Website Development in <span className="gradient-text">Nashik, India</span>
                 </h1>
                 
                 {/* Description */}

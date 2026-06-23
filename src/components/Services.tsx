@@ -142,12 +142,12 @@ export default function Services() {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
-                  
-                  {/* Floating icon overlapping the image bottom border */}
-                  <div className={`absolute -bottom-5 left-6 w-10 h-10 rounded-xl bg-white flex items-center justify-center border border-slate-100 shadow-md z-10 transition-transform duration-300 group-hover:scale-105`}>
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${service.colorClass}`}>
-                      <Icon className="h-4.5 w-4.5" />
-                    </div>
+                </div>
+
+                {/* Floating icon overlapping the image bottom border */}
+                <div className={`absolute top-[156px] left-6 w-10 h-10 rounded-xl bg-white flex items-center justify-center border border-slate-100 shadow-md z-10 transition-transform duration-300 group-hover:scale-105`}>
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${service.colorClass}`}>
+                    <Icon className="h-4.5 w-4.5" />
                   </div>
                 </div>
 

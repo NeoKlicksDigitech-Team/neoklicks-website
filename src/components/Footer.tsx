@@ -123,6 +123,9 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between pt-8 text-xs text-slate-500">
           <p>© {new Date().getFullYear()} NeoKlicks Digitech. All rights reserved.</p>
           <div className="flex items-center gap-6 mt-4 sm:mt-0">
+            <Link href="/portfolio" className="hover:text-slate-300 transition-colors">
+              Portfolio
+            </Link>
             <Link href="/privacy-policy" className="hover:text-slate-300 transition-colors">
               Privacy Policy
             </Link>
