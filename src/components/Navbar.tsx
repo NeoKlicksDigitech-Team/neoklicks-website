@@ -40,6 +40,11 @@ export const servicesList: ServiceItem[] = [
     shortDesc: "Data-driven campaigns that scale lead gen.",
   },
   {
+    name: "Meta Ads & Social Marketing",
+    slug: "meta-ads",
+    shortDesc: "High-ROI Facebook & Instagram ad campaigns.",
+  },
+  {
     name: "UI/UX Design",
     slug: "ui-ux-design",
     shortDesc: "Modern, premium user flows & aesthetics.",

@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowUp, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
+import { ArrowUp, Mail, MapPin, Clock, ArrowRight, Phone } from "lucide-react";
 import Logo from "./Logo";
 import { servicesList } from "./Navbar";
 
@@ -60,10 +60,6 @@ export default function Footer() {
                 </svg>
               </a>
             </div>
-            <div className="pt-2">
-              <span className="text-xs font-mono uppercase tracking-wider text-slate-500">NeoKlicks Digitech</span>
-              <p className="text-xs text-brand-orange font-semibold mt-1">Co-Founder Agency</p>
-            </div>
           </div>
 
           {/* Services Column */}
@@ -108,6 +104,17 @@ export default function Footer() {
               <a href="mailto:team@neoklicksdigitech.com" className="hover:text-brand-orange transition-colors">
                 team@neoklicksdigitech.com
               </a>
+            </div>
+            <div className="flex items-start gap-3">
+              <Phone className="h-5 w-5 text-brand-pink shrink-0 mt-0.5" />
+              <div className="flex flex-col space-y-1">
+                <a href="tel:+919309952393" className="hover:text-brand-orange transition-colors">
+                  +91 93099 52393
+                </a>
+                <a href="tel:+919284868618" className="hover:text-brand-orange transition-colors">
+                  +91 9284868618
+                </a>
+              </div>
             </div>
             <div className="flex items-start gap-3">
               <Clock className="h-5 w-5 text-brand-pink shrink-0 mt-0.5" />

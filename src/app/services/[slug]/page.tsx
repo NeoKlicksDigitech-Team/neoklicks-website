@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { Metadata, Viewport } from "next";
 import { 
   Cpu, Globe, Search, ShoppingBag, TrendingUp, Palette, ShieldCheck,
-  ClipboardList, Lightbulb, LayoutGrid, Code, Rocket
+  ClipboardList, Lightbulb, LayoutGrid, Code, Rocket, Share2
 } from "lucide-react";
 import ServicePageClient, { ClientServiceDetail } from "@/components/ServicePageClient";
 
@@ -331,6 +331,80 @@ const servicesDetailMap: Record<string, ClientServiceDetail> = {
       },
     ]
   },
+  "meta-ads": {
+    title: "Meta Ads & Social Media Marketing",
+    tagline: "Drive High-Converting Facebook & Instagram Ad Campaigns That Scale Revenue.",
+    intro: "We design, build, and optimize performance-driven Meta (Facebook & Instagram) advertising campaigns. From custom audience segmentation to scroll-stopping creatives and Meta Pixel tracking, we help your business capture leads and grow online sales.",
+    deliverables: [
+      "Facebook & Instagram Ad Campaign Setup & Strategy",
+      "Custom Audience Targeting & Lookalike Audience Modeling",
+      "Scroll-Stopping Visual Creatives & Direct-Response Copywriting",
+      "Meta Pixel & Server-Side Conversions API (CAPI) Tracking",
+      "Continuous A/B Split-Testing of Visuals & Headlines",
+      "Real-Time ROAS, CPA, and Conversion Performance Reports"
+    ],
+    metric: "4.5x+ ROAS",
+    metricLabel: "Target Return on Ad Spend for Active Campaigns",
+    icon: <Share2 className="h-10 w-10 text-blue-600" />,
+    eyebrow: "🎯 Meta Ads & Social Marketing",
+    heroTitle: <>Meta Ads & Social Marketing in <span className="gradient-text">Nashik</span></>,
+    cardLabel1: "Precision Targeting",
+    cardDesc1: "Custom & Lookalike Audiences",
+    cardLabel2: "Pixel & CAPI Setup",
+    cardDesc2: "100% Verified Tracking",
+    counters: [
+      { value: "4.5x+", label: "Average Campaign ROAS" },
+      { value: "35%+", label: "Conversion Lift Rate" },
+      { value: "< 24 hrs", label: "Campaign Setup & Go-Live" }
+    ],
+    processTitle: <>Our 6-Step Meta Ads <span className="gradient-text">Framework</span></>,
+    processSubtitle: "A proven data-driven process to research, craft, track, test, and scale Facebook & Instagram ad campaigns.",
+    processEyebrow: "⚙ META ADS LIFECYCLE",
+    processSteps: [
+      {
+        number: "01",
+        title: "Audience & Competitor Audit",
+        description: "We analyze your ideal customer demographics, buyer pain points, and competitor ad hooks.",
+        icon: <ClipboardList className="h-5 w-5" />,
+        iconColorClass: "text-brand-pink bg-brand-pink/5 border border-brand-pink/15",
+      },
+      {
+        number: "02",
+        title: "Funnel Strategy",
+        description: "We design multi-stage ad funnels (Top/Middle/Bottom of Funnel) to nurture prospects into buyers.",
+        icon: <Lightbulb className="h-5 w-5" />,
+        iconColorClass: "text-blue-500 bg-blue-500/5 border border-blue-500/15",
+      },
+      {
+        number: "03",
+        title: "Ad Creative & Copy",
+        description: "We create scroll-stopping visual assets (carousel, video, image) and high-converting copy.",
+        icon: <LayoutGrid className="h-5 w-5" />,
+        iconColorClass: "text-emerald-500 bg-emerald-500/5 border border-emerald-500/15",
+      },
+      {
+        number: "04",
+        title: "Pixel & CAPI Setup",
+        description: "We configure Meta Pixel, Server-side Conversions API (CAPI), and custom event tracking.",
+        icon: <Palette className="h-5 w-5" />,
+        iconColorClass: "text-purple-500 bg-purple-500/5 border border-purple-500/15",
+      },
+      {
+        number: "05",
+        title: "A/B Testing",
+        description: "We launch split tests across headlines, call-to-actions, visual assets, and target audiences.",
+        icon: <Code className="h-5 w-5" />,
+        iconColorClass: "text-teal-500 bg-teal-500/5 border border-teal-500/15",
+      },
+      {
+        number: "06",
+        title: "ROAS Scaling",
+        description: "We reallocate budget to winning ad sets, lower Cost-Per-Acquisition (CPA), and scale revenue.",
+        icon: <Rocket className="h-5 w-5" />,
+        iconColorClass: "text-brand-orange bg-brand-orange/5 border border-brand-orange/15",
+      },
+    ]
+  },
   "ui-ux-design": {
     title: "UI/UX Design",
     tagline: "Beautiful and User-Friendly Visual Designs for Your Apps & Websites.",
@@ -608,6 +682,18 @@ const seoMetadataMap: Record<string, {
     twitterTitle: "Digital Marketing & Lead Generation | NeoKlicks DigiTech",
     twitterDescription: "Scale your sales with data-driven ad campaigns. NeoKlicks DigiTech, Nashik — performance marketing that delivers ROI.",
     twitterAlt: "NeoKlicks DigiTech – Digital Marketing Services",
+  },
+  "meta-ads": {
+    title: "Meta Ads & Social Media Marketing | NeoKlicks DigiTech Nashik",
+    description: "Drive targeted leads and sales with high-ROI Meta Ads (Facebook & Instagram) campaigns by NeoKlicks DigiTech. Audience targeting, ad copy design, and pixel tracking for businesses in Nashik and globally.",
+    keywords: "Meta Ads agency Nashik, Facebook Ads India, Instagram Ads agency, social media advertising Maharashtra, paid ads agency India, Meta Pixel setup, Facebook lead generation",
+    canonical: "https://neoklicksdigitech.com/services/meta-ads",
+    ogTitle: "Meta Ads & Facebook/Instagram Marketing | Scale Your Sales – NeoKlicks DigiTech",
+    ogDescription: "High-converting Meta Ads (Facebook & Instagram) campaigns built on data, audience targeting, and scroll-stopping creatives.",
+    ogAlt: "Meta Ads & Social Marketing – NeoKlicks DigiTech",
+    twitterTitle: "Meta Ads & Social Media Marketing | NeoKlicks DigiTech",
+    twitterDescription: "Scale your sales with performance-driven Facebook & Instagram ad campaigns. NeoKlicks DigiTech, Nashik.",
+    twitterAlt: "NeoKlicks DigiTech – Meta Ads Services",
   },
   "e-commerce": {
     title: "E-Commerce Development | High-Converting Online Stores – NeoKlicks DigiTech",

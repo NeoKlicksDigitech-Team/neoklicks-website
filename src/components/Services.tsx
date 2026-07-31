@@ -2,14 +2,14 @@
 
 import React from "react";
 import Link from "next/link";
-import { Globe, Cpu, ShoppingBag, Search, TrendingUp, Palette, ShieldCheck, ArrowRight } from "lucide-react";
+import { Globe, Cpu, ShoppingBag, Search, TrendingUp, Palette, ShieldCheck, ArrowRight, Share2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface ServiceData {
   title: string;
   slug: string;
   description: string;
-  iconName: "Globe" | "Cpu" | "ShoppingBag" | "Search" | "TrendingUp" | "Palette" | "ShieldCheck";
+  iconName: "Globe" | "Cpu" | "ShoppingBag" | "Search" | "TrendingUp" | "Palette" | "ShieldCheck" | "Share2";
   colorClass: string;
 }
 
@@ -50,6 +50,13 @@ const servicesData: ServiceData[] = [
     colorClass: "text-emerald-500 bg-emerald-500/5 border-emerald-500/10",
   },
   {
+    title: "Meta Ads & Social Marketing",
+    slug: "meta-ads",
+    description: "High-ROI Facebook & Instagram ad campaigns with custom audience targeting, pixel tracking, and scroll-stopping creative ad copies.",
+    iconName: "Share2",
+    colorClass: "text-blue-600 bg-blue-600/5 border-blue-600/10",
+  },
+  {
     title: "UI/UX Design",
     slug: "ui-ux-design",
     description: "Beautiful, modern, and intuitive visual layouts that capture attention and guide customers to conversion actions.",
@@ -80,6 +87,7 @@ const iconMap = {
   TrendingUp: TrendingUp,
   Palette: Palette,
   ShieldCheck: ShieldCheck,
+  Share2: Share2,
 };
 
 export default function Services() {

@@ -359,6 +359,50 @@ function DigitalMarketingAnimation() {
   );
 }
 
+function MetaAdsAnimation() {
+  return (
+    <div className="relative w-full max-w-[480px] scale-[0.66] min-[360px]:scale-[0.7] min-[400px]:scale-[0.76] min-[440px]:scale-[0.82] sm:scale-[0.9] lg:scale-100 origin-center py-8 lg:ml-auto">
+      <div className="w-full bg-white rounded-2xl border border-slate-200/80 shadow-2xl p-4 space-y-4 relative z-10">
+        <div className="flex justify-between items-center border-b border-slate-100 pb-3">
+          <div className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-blue-600 inline-block"></span>
+            <span className="text-[9px] font-mono font-bold text-slate-600">META ADS (FB & INSTAGRAM)</span>
+          </div>
+          <span className="px-1.5 py-0.5 rounded bg-blue-50 text-blue-600 font-extrabold text-[7px] uppercase tracking-wider">ROAS: 4.5x</span>
+        </div>
+        <div className="border border-slate-200/60 rounded-xl p-3 bg-slate-50 text-left space-y-2">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-1.5">
+              <span className="text-[6.5px] bg-blue-600 text-white px-1 rounded font-black">Sponsored</span>
+              <span className="text-[7.5px] text-slate-500">NeoKlicks DigiTech</span>
+            </div>
+            <span className="text-[7px] font-bold text-slate-400">Instagram Feed</span>
+          </div>
+          <span className="text-xs font-black text-brand-navy leading-tight block">Targeted Facebook & Instagram Ad Campaigns</span>
+          <p className="text-[8px] text-slate-500 leading-normal">Reach ready-to-buy customers with high-converting creatives, pixel tracking, and lookalike audience funnels.</p>
+        </div>
+        <div className="h-16 flex items-end gap-1.5 pt-4">
+          <div className="w-full h-[35%] bg-blue-100 rounded-sm"></div>
+          <div className="w-full h-[55%] bg-blue-300 rounded-sm"></div>
+          <div className="w-full h-[70%] bg-blue-500 rounded-sm"></div>
+          <div className="w-full h-[95%] bg-brand-orange rounded-sm shadow-[0_0_8px_rgba(255,107,0,0.3)]"></div>
+        </div>
+      </div>
+      <motion.div
+        animate={{ y: [0, -6, 0] }}
+        transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }}
+        className="absolute -left-6 top-10 bg-white border border-slate-200 p-2.5 rounded-2xl shadow-xl flex items-center gap-2.5 z-20"
+      >
+        <span className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-extrabold text-[10px]">🎯</span>
+        <div className="space-y-0.5 text-left">
+          <p className="text-[10px] font-black text-brand-navy leading-none">ROAS: 4.5x+</p>
+          <p className="text-[8px] text-slate-400 font-bold">Verified Conversion Lift</p>
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
 function UiUxAnimation() {
   return (
     <div className="relative w-full max-w-[480px] scale-[0.66] min-[360px]:scale-[0.7] min-[400px]:scale-[0.76] min-[440px]:scale-[0.82] sm:scale-[0.9] lg:scale-100 origin-center py-8 lg:ml-auto">
@@ -526,6 +570,8 @@ function ServiceHeroAnimation({ slug }: { slug: string }) {
       return <SeoAnimation />;
     case "digital-marketing":
       return <DigitalMarketingAnimation />;
+    case "meta-ads":
+      return <MetaAdsAnimation />;
     case "ui-ux-design":
       return <UiUxAnimation />;
     case "custom-software":

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Mail, MapPin, Clock, MessageSquare, ArrowRight, CheckCircle2, AlertCircle, Share2 } from "lucide-react";
+import { Mail, MapPin, Clock, MessageSquare, ArrowRight, CheckCircle2, AlertCircle, Share2, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { createClient } from "@/utils/supabase/client";
 import { contactSchema } from "@/utils/security/validation";
@@ -246,6 +246,21 @@ export default function Contact() {
                   <a href="mailto:team@neoklicksdigitech.com" className="text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors mt-0.5 block break-all sm:break-normal">
                     team@neoklicksdigitech.com
                   </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3.5 p-4 rounded-2xl border border-slate-200 bg-slate-50/50 min-w-0">
+                <Phone className="h-5 w-5 text-brand-orange shrink-0 mt-0.5" />
+                <div className="min-w-0 flex-1">
+                  <h4 className="text-xs font-mono uppercase text-slate-400 font-bold">Call Us</h4>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 mt-0.5">
+                    <a href="tel:+919309952393" className="text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors">
+                      +91 93099 52393
+                    </a>
+                    <a href="tel:+919284868618" className="text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors">
+                      +91 9284868618
+                    </a>
+                  </div>
                 </div>
               </div>
 
